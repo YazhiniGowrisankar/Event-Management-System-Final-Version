@@ -1,0 +1,39 @@
+═══════════════════════════════════════════════════════════════
+  QUICK GUIDE: How to Add Stripe Secret Key to Your .env File
+═══════════════════════════════════════════════════════════════
+
+STEP 1: Get Your Stripe Secret Key
+───────────────────────────────────────────────────────────────
+1. Go to: https://dashboard.stripe.com/test/apikeys
+2. Click "Reveal test key" next to "Secret key"
+3. Copy the key (it starts with: sk_test_...)
+
+STEP 2: Add to .env File
+───────────────────────────────────────────────────────────────
+Option A - Using Notepad/VS Code:
+  1. Open: backend/.env
+  2. Add this line at the end:
+     STRIPE_SECRET_KEY=sk_test_paste_your_key_here
+  3. Save the file
+
+Option B - Using PowerShell (run from backend folder):
+  Add-Content -Path .env -Value "`nSTRIPE_SECRET_KEY=sk_test_paste_your_key_here"
+
+STEP 3: Restart Server
+───────────────────────────────────────────────────────────────
+Stop your backend server (Ctrl+C) and restart:
+  npm run dev
+
+═══════════════════════════════════════════════════════════════
+  IMPORTANT NOTES:
+═══════════════════════════════════════════════════════════════
+
+✅ Use TEST keys (sk_test_...) for development
+✅ Never commit .env file to Git
+✅ The system works WITHOUT Stripe key (dev mode)
+✅ Test payment IDs format: pi_test_... or pi_...
+
+═══════════════════════════════════════════════════════════════
+
+For detailed instructions, see: STRIPE_KEY_SETUP.md
+
